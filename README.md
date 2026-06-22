@@ -1,0 +1,82 @@
+Portable AI Android 16 Compatibility Build (Moto G 2025)
+
+Overview
+
+This project documents the process of getting a modified Portable AI APK running on a Moto G 2025 running Android 16.
+
+The primary issue was not the AI models themselves, but Android 16 package verification and APK signing compatibility. Multiple rebuilds were required before arriving at a package structure that Android would accept and install correctly.
+
+Tested Device
+
+- Device: Moto G 2025
+- Android Version: 16
+- RAM: 4 GB Physical RAM
+- RAM Boost Enabled: 8 GB Virtual RAM
+- Storage: 128 GB
+
+Results
+
+APK Installation
+
+✅ Successfully installs on Android 16
+
+Application Launch
+
+✅ Application launches correctly
+
+Model Downloads
+
+✅ Model downloads function correctly
+
+TinyLlama Runtime
+
+✅ Loads and runs successfully
+
+Gemma 2.2B Abliterated Runtime
+
+⚠ Downloads successfully but crashes during model initialization
+
+Findings
+
+The Gemma 2.2B Abliterated model advertises a minimum requirement of 4 GB RAM, but real-world testing suggests that Android system overhead and runtime memory allocation push actual requirements higher than the published minimum.
+
+Even with RAM Boost enabled, virtual RAM does not fully replace physical RAM for local LLM inference workloads.
+
+Stable Configuration
+
+- TinyLlama 1.1B
+- Android 16
+- Moto G 2025
+- RAM Boost Enabled
+
+Unstable Configuration
+
+- Gemma 2.2B Abliterated
+- Android 16
+- 4 GB physical RAM devices
+
+Download
+
+APK Release:
+
+[INSERT DOWNLOAD LINK HERE]
+
+Notes
+
+If the application crashes while loading a model between 75% and 100%, the APK itself is likely functioning correctly. The crash is probably occurring during model context allocation rather than package installation or application startup.
+
+Users with 6 GB+ physical RAM may have better results with Gemma-class models.
+
+Credits
+
+Testing:
+
+- Dustin Pettitt
+
+Technical troubleshooting and APK compatibility assistance:
+
+- Orion (ChatGPT)
+
+License
+
+Please respect the original application's license and distribution terms. This compatibility build is intended for educational and interoperability purposes.
